@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  
+     <h:head>
+        <link rel="stylesheet"  href="logincss.css"/>
+        <title>iniciar sesion</title>
+    </h:head>
+       
+   <h:body >
+       <body>
+       <div class="cabecera">
+       <h1 align="center">Inicio de Sesion</h1>
+       <h:form>    
+            <span class="ui-float-label">
+            <p:inputText value="#{login.usuario}" style="color: blue" />
+            <p:outputLabel for="@previous" value="Usuario" />
+            </span> <br></br>
+            <span class="ui-float-label">    
+            <p:password value="#{login.contraseña}" style="color: blue"/>
+            <p:outputLabel for="@previous" value="clave" />
+            </span>
+           
+            <div class="boton">
+                <p:commandButton  value="ingresar" action="#{login.ingresar}"  update="@form" style="color: sandybrown"  />
+            </div>
+                   
+           <div class="mensage">
+                <p:growl showDetail="true" sticky="true"/>
+           </div>
+        </h:form>
+
+
+
+           </div>
+       </body>
+                
+        </h:body>
+      
+</html>
+

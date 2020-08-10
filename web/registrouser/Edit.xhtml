@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegistrouserEditDlg" widgetVar="RegistrouserEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRegistrouserTitle}">
+            <h:form id="RegistrouserEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{registrouserController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{registrouserController.selected.cedula}" title="#{bundle.EditRegistrouserTitle_cedula}" required="true" requiredMessage="#{bundle.EditRegistrouserRequiredMessage_cedula}"/>
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{registrouserController.selected.nombres}" title="#{bundle.EditRegistrouserTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{registrouserController.selected.apellidos}" title="#{bundle.EditRegistrouserTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{registrouserController.selected.telefono}" title="#{bundle.EditRegistrouserTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{registrouserController.selected.direccion}" title="#{bundle.EditRegistrouserTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_corre}" for="corre" />
+                        <p:inputText id="corre" value="#{registrouserController.selected.corre}" title="#{bundle.EditRegistrouserTitle_corre}" />
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{registrouserController.selected.usuario}" title="#{bundle.EditRegistrouserTitle_usuario}" />
+                        <p:outputLabel value="#{bundle.EditRegistrouserLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{registrouserController.selected.clave}" title="#{bundle.EditRegistrouserTitle_clave}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{registrouserController.update}" value="#{bundle.Save}" update="display,:RegistrouserListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RegistrouserEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RegistrouserEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegistrouserViewDlg" widgetVar="RegistrouserViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRegistrouserTitle}">
+            <h:form id="RegistrouserViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{registrouserController.selected != null}">
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_cedula}"/>
+                        <h:outputText value="#{registrouserController.selected.cedula}" title="#{bundle.ViewRegistrouserTitle_cedula}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_nombres}"/>
+                        <h:outputText value="#{registrouserController.selected.nombres}" title="#{bundle.ViewRegistrouserTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_apellidos}"/>
+                        <h:outputText value="#{registrouserController.selected.apellidos}" title="#{bundle.ViewRegistrouserTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_telefono}"/>
+                        <h:outputText value="#{registrouserController.selected.telefono}" title="#{bundle.ViewRegistrouserTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_direccion}"/>
+                        <h:outputText value="#{registrouserController.selected.direccion}" title="#{bundle.ViewRegistrouserTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_corre}"/>
+                        <h:outputText value="#{registrouserController.selected.corre}" title="#{bundle.ViewRegistrouserTitle_corre}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_usuario}"/>
+                        <h:outputText value="#{registrouserController.selected.usuario}" title="#{bundle.ViewRegistrouserTitle_usuario}"/>
+                        <h:outputText value="#{bundle.ViewRegistrouserLabel_clave}"/>
+                        <h:outputText value="#{registrouserController.selected.clave}" title="#{bundle.ViewRegistrouserTitle_clave}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="RegistrouserViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

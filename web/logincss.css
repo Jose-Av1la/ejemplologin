@@ -1,0 +1,25 @@
+.cabecera{
+  width:300px; /*tamaño en ancho*/
+  height:210px;/*tamaño en altura*/
+   position: relative;
+  background: darksalmon;
+  border: 8px solid #B6D5F9;
+  top: 0px;
+  right: 0px;/*derecha*/
+ left:640px; /*izquierda*/
+
+  }
+
+h1{
+   color: black;
+   align-content: center; 
+   font-family: cursive        
+}.boton{
+    position: relative;
+    right: 10px;
+    left: 95px;
+    top:5px;  
+
+}.mensage{
+   position: relative
+}

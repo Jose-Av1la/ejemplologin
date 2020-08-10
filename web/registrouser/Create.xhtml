@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegistrouserCreateDlg" widgetVar="RegistrouserCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRegistrouserTitle}">
+            <h:form id="RegistrouserCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{registrouserController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{registrouserController.selected.cedula}" title="#{bundle.CreateRegistrouserTitle_cedula}" required="true" requiredMessage="#{bundle.CreateRegistrouserRequiredMessage_cedula}"/>
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{registrouserController.selected.nombres}" title="#{bundle.CreateRegistrouserTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{registrouserController.selected.apellidos}" title="#{bundle.CreateRegistrouserTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{registrouserController.selected.telefono}" title="#{bundle.CreateRegistrouserTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{registrouserController.selected.direccion}" title="#{bundle.CreateRegistrouserTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_corre}" for="corre" />
+                        <p:inputText id="corre" value="#{registrouserController.selected.corre}" title="#{bundle.CreateRegistrouserTitle_corre}" />
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{registrouserController.selected.usuario}" title="#{bundle.CreateRegistrouserTitle_usuario}" />
+                        <p:outputLabel value="#{bundle.CreateRegistrouserLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{registrouserController.selected.clave}" title="#{bundle.CreateRegistrouserTitle_clave}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{registrouserController.create}" value="#{bundle.Save}" update="display,:RegistrouserListForm:datalist,:growl" oncomplete="handleSubmit(args,'RegistrouserCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RegistrouserCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
